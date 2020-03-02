@@ -19,7 +19,9 @@ export class ToolboxListComponent implements OnInit {
   ngOnInit(): void {
     this.toolboxes$ = this.service.fetchAll().pipe(catchError(err => {
       if (err instanceof HttpErrorResponse) {
-        this.snackBar.open(`Something went wrong, status: ${err.status} ${err.statusText}`);
+        this.snackBar.open(`Something went wrong, status: ${err.status} ${err.statusText}`,
+          null,
+          { duration: 5000 });
       }
       return of([]);
     }));
