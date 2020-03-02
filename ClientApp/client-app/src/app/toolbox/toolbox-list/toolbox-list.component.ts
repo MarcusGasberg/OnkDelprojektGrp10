@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Toolbox } from '../toolbox';
 import { ToolboxService } from '../toolbox.service';
 import { catchError } from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-toolbox-list',
@@ -12,9 +14,16 @@ import { catchError } from 'rxjs/operators';
 export class ToolboxListComponent implements OnInit {
   public toolboxes$: Observable<Toolbox[]>;
 
-  constructor(private service: ToolboxService) {}
+  constructor(private service: ToolboxService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
-    this.toolboxes$ = this.service.fetchAll().pipe();
+    this.toolboxes$ = this.service.fetchAll().pipe(catchError(err => {
+      if (err instanceof HttpErrorResponse) {
+        this.snackBar.open(`Something went wrong, status: ${err.status} ${err.statusText}`,
+          null,
+          { duration: 5000 });
+      }
+      return of([]);
+    }));
   }
 }
