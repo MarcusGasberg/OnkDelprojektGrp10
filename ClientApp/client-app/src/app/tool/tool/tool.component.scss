@@ -1,0 +1,14 @@
+.panel-header {
+  align-items: center;
+  mat-icon {
+    padding-right: 10px;
+  }
+}
+
+mat-expansion-panel {
+  margin: 3px;
+}
+
+.mat-expansion-panel-spacing {
+  margin-bottom: 16px !important;
+}
