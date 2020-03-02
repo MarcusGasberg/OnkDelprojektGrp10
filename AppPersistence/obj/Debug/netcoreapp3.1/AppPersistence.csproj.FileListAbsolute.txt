@@ -1,0 +1,8 @@
+C:\Users\mrgas\source\repos\onk\DelAflevering_Grp10\AppPersistence\bin\Debug\netcoreapp3.1\AppPersistence.deps.json
+C:\Users\mrgas\source\repos\onk\DelAflevering_Grp10\AppPersistence\bin\Debug\netcoreapp3.1\AppPersistence.dll
+C:\Users\mrgas\source\repos\onk\DelAflevering_Grp10\AppPersistence\obj\Debug\netcoreapp3.1\AppPersistence.AssemblyInfoInputs.cache
+C:\Users\mrgas\source\repos\onk\DelAflevering_Grp10\AppPersistence\obj\Debug\netcoreapp3.1\AppPersistence.AssemblyInfo.cs
+C:\Users\mrgas\source\repos\onk\DelAflevering_Grp10\AppPersistence\bin\Debug\netcoreapp3.1\AppPersistence.pdb
+C:\Users\mrgas\source\repos\onk\DelAflevering_Grp10\AppPersistence\obj\Debug\netcoreapp3.1\AppPersistence.csprojAssemblyReference.cache
+C:\Users\mrgas\source\repos\onk\DelAflevering_Grp10\AppPersistence\obj\Debug\netcoreapp3.1\AppPersistence.dll
+C:\Users\mrgas\source\repos\onk\DelAflevering_Grp10\AppPersistence\obj\Debug\netcoreapp3.1\AppPersistence.pdb
