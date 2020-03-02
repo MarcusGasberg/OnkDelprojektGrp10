@@ -9,7 +9,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-toolbox-list',
   templateUrl: './toolbox-list.component.html',
-  styleUrls: ['./toolbox-list.component.scss']
+  styleUrls: ['./toolbox-list.component.scss'],
 })
 export class ToolboxListComponent implements OnInit {
   public toolboxes$: Observable<Toolbox[]>;

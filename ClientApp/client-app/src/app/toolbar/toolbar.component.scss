@@ -1,10 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display&display=swap');
+
 .icons {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    width: 100%;
-    .mat-icon-button{
-        padding: 0 30px;
-    }
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+  .mat-icon-button {
+    padding: 0 30px;
+  }
 }
 
+.title {
+  font-family: 'Sedgwick Ave Display';
+  font-weight: bold;
+}

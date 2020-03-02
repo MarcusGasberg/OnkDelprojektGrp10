@@ -1,0 +1,18 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title class="panel-header">
+      <mat-icon mat-list-icon>build</mat-icon>
+      {{ tool.model }} {{ tool.type }}
+    </mat-panel-title>
+    <mat-panel-description class="panel-header">
+      Tool Description
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <p>Make: {{ tool.make }}</p>
+  <p>Color: {{ tool.color }}</p>
+  <p>Serial Number: {{ tool.serialNumber }}</p>
+  <p>
+    Date Aquired:
+    {{ tool.dateAcquired.toLocaleString('en-GB', {}) }}
+  </p>
+</mat-expansion-panel>

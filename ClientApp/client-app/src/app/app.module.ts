@@ -10,6 +10,8 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { ToolboxComponent } from './toolbox/toolbox/toolbox.component';
 import { ToolboxListComponent } from './toolbox/toolbox-list/toolbox-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ToolComponent } from './tool/tool/tool.component';
+import { ToolListComponent } from './tool/tool-list/tool-list.component';
 
 @NgModule({
   declarations: [
@@ -18,15 +20,17 @@ import { HttpClientModule } from '@angular/common/http';
     ToolbarComponent,
     ToolboxComponent,
     ToolboxListComponent,
+    ToolComponent,
+    ToolListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

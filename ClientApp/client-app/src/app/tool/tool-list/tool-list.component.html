@@ -1,0 +1,7 @@
+<mat-list>
+  <h3 mat-subheader>Toolboxes</h3>
+  <mat-accordion *ngFor="let tool of tools$ | async">
+    <app-tool [tool]="tool"></app-tool>
+  </mat-accordion>
+  <mat-divider></mat-divider>
+</mat-list>
