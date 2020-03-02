@@ -40,6 +40,13 @@ namespace ServerApp
 
             app.UseRouting();
 
+            if (env.IsDevelopment())
+            {
+                app.UseCors(builder => builder.WithOrigins("http://localhost:4200")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader());
+            }
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
