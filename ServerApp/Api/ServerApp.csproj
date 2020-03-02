@@ -22,5 +22,9 @@
     <ProjectReference Include="..\AppPersistence\AppPersistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
 
 </Project>
