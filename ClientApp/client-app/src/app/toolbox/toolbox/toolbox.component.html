@@ -1,4 +1,20 @@
-<mat-card class="toolbox-info">
-    <mat-icon mat-list-icon>business_center</mat-icon>
-    <h1>{{toolbox.model}}</h1>
-</mat-card>
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title class="panel-header">
+      <mat-icon mat-list-icon>business_center</mat-icon>
+      {{ toolbox.model }}
+    </mat-panel-title>
+    <mat-panel-description class="panel-header">
+      Toolbox details
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <div>Owner: {{ (craftsman$ | async).firstName }} {{ (craftsman$ | async).lastName }}</div>
+  <div>Color: {{ toolbox.color }}</div>
+  <div>Date aquired: {{ toolbox.dateAcquired.toLocaleString('en-GB', {}) }}</div>
+  <div>Make: {{ toolbox.make }}</div>
+  <div>Serial number: {{ toolbox.serialNumber }}</div>
+
+  <div *ngFor="let tool of tools$ | async">
+    <app-tool [tool]="tool"></app-tool>
+  </div>
+</mat-expansion-panel>

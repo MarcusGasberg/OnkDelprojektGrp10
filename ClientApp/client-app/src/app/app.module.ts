@@ -12,6 +12,8 @@ import { ToolboxListComponent } from './toolbox/toolbox-list/toolbox-list.compon
 import { HttpClientModule } from '@angular/common/http';
 import { ToolComponent } from './tool/tool/tool.component';
 import { ToolListComponent } from './tool/tool-list/tool-list.component';
+import { CraftsmanListComponent } from './craftsman/craftsman-list/craftsman-list.component';
+import { CraftsmanComponent } from './craftsman/craftsman/craftsman.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { ToolListComponent } from './tool/tool-list/tool-list.component';
     ToolboxListComponent,
     ToolComponent,
     ToolListComponent,
+    CraftsmanListComponent,
+    CraftsmanComponent,
   ],
   imports: [
     BrowserModule,

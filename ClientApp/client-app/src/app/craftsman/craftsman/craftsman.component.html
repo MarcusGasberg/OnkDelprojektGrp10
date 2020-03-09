@@ -1,0 +1,15 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title class="panel-header">
+      <mat-icon mat-list-icon>person</mat-icon>
+      {{ craftsman.firstName }} {{ craftsman.lastName }}
+    </mat-panel-title>
+    <mat-panel-description class="panel-header">
+      Craftsman Details
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <div>
+    Employment date: {{ craftsman.employmentDate.toLocaleString('en-GB', {}) }}
+  </div>
+  <div>Field of work: {{ craftsman.workField }}</div>
+</mat-expansion-panel>
