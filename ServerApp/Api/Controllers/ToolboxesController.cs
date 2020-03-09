@@ -33,23 +33,39 @@ namespace ServerApp.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Toolbox>> GetToolbox(int id)
         {
-            var craftsman = await context.Toolboxes.FindAsync(id);
-            if (craftsman == null)
+            var toolbox = await context.Toolboxes.FindAsync(id);
+            if (toolbox == null)
             {
                 return NotFound();
             }
 
-            return craftsman;
+            return toolbox;
+        }
+
+        // GET: api/Toolboxes/5/tools
+        [HttpGet("{id}/tools")]
+        public async Task<ActionResult<IEnumerable<Tool>>> GetToolsInToolbox(int id)
+        {
+            var toolbox = await context.Toolboxes
+                .Include(tb=>tb.Tools)
+                .FirstOrDefaultAsync(tb => tb.Id == id);
+            if (toolbox == null)
+            {
+                return NotFound();
+            }
+
+            return toolbox.Tools ?? new HashSet<Tool>();
         }
 
         // POST: api/Toolboxes
         [HttpPost]
-        public async Task<ActionResult<Toolbox>> PostToolbox([FromBody] Toolbox craftsman)
+        public async Task<ActionResult<Toolbox>> PostToolbox([FromBody] Toolbox toolbox)
         {
-            context.Add(craftsman);
+            context.Add(toolbox);
+
             await context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(PostToolbox), new { id = craftsman.Id }, craftsman);
+            return CreatedAtAction(nameof(PostToolbox), new { id = toolbox.Id }, toolbox);
         }
 
         // PUT: api/Toolboxes/5

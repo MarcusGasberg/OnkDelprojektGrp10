@@ -25,5 +25,6 @@ export class ToolboxComponent implements OnInit {
 
   ngOnInit(): void {
     this.craftsman$ = this.craftsmanService.getCraftsman(this.toolbox.ownerId);
+    this.tools$ = this.service.getToolboxContents(this.toolbox.id);
   }
 }

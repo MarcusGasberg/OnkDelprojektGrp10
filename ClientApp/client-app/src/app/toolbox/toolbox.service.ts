@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Toolbox } from './toolbox';
 import { Observable, of } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { tap, switchMap } from 'rxjs/operators';
 import { Tool } from '../models/tool';
 
 @Injectable({
@@ -19,5 +19,9 @@ export class ToolboxService {
 
   public fetchToolbox(id: number): Observable<Toolbox> {
     return this.httpClient.get<Toolbox>(`${this.apiUrl}/toolboxes/${id}`);
+  }
+
+  public getToolboxContents(id: number): Observable<Tool[]> {
+    return this.httpClient.get<Tool[]>(`${this.apiUrl}/toolboxes/${id}/tools`);
   }
 }

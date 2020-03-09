@@ -37,4 +37,4 @@ import { CraftsmanComponent } from './craftsman/craftsman/craftsman.component';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
