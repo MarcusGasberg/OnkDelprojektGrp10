@@ -9,9 +9,9 @@ namespace AppPersistence
         {
         }
 
-        public DbSet<Craftsman> craftsmen;
-        public DbSet<Tool> tools;
-        public DbSet<Toolbox> toolboxes;
+        public DbSet<Craftsman> Craftsmen { get; set; }
+        public DbSet<Tool> Tools { get; set; }
+        public DbSet<Toolbox> Toolboxes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -15,7 +15,7 @@ namespace AppPersistence.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.2")
+                .HasAnnotation("ProductVersion", "3.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -40,14 +40,14 @@ namespace AppPersistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Craftsman");
+                    b.ToTable("Craftsmen");
                 });
 
             modelBuilder.Entity("AppPersistence.Models.Tool", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
+                        .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("Acquired")
@@ -72,7 +72,7 @@ namespace AppPersistence.Migrations
 
                     b.HasIndex("ToolboxId");
 
-                    b.ToTable("Tool");
+                    b.ToTable("Tools");
                 });
 
             modelBuilder.Entity("AppPersistence.Models.Toolbox", b =>
@@ -104,7 +104,7 @@ namespace AppPersistence.Migrations
 
                     b.HasIndex("OwnerId");
 
-                    b.ToTable("Toolbox");
+                    b.ToTable("Toolboxes");
                 });
 
             modelBuilder.Entity("AppPersistence.Models.Tool", b =>
