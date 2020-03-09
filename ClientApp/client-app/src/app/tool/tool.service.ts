@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable, of } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { tap, take, filter } from 'rxjs/operators';
 import { Tool } from '../models/tool';
 
 @Injectable({
@@ -13,7 +13,7 @@ export class ToolService {
   constructor(private httpClient: HttpClient) {}
 
   public fetchAll(): Observable<Tool[]> {
-    // return this.httpClient.get<Toolbox[]>(`${this.apiUrl}/toolbox`);
+    // return this.httpClient.get<Tool[]>(`${this.apiUrl}/tool`);
     return of([
       {
         model: 'lmao',
@@ -41,4 +41,5 @@ export class ToolService {
       } as Tool,
     ]).pipe(tap(t => console.log(t)));
   }
+
 }
