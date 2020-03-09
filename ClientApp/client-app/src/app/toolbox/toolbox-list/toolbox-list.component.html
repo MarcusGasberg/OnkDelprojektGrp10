@@ -1,4 +1,4 @@
 <h2 class="mat-h2">Toolboxes</h2>
 <mat-accordion *ngFor="let toolbox of toolboxes$ | async">
-  <app-toolbox [toolbox]="toolbox"></app-toolbox>
+  <app-toolbox *ngIf="toolbox" [toolbox]="toolbox"></app-toolbox>
 </mat-accordion>
