@@ -15,12 +15,35 @@ export class ToolboxService {
 
   public fetchAll(): Observable<Toolbox[]> {
     //return this.httpClient.get<Toolbox[]>(`${this.apiUrl}/toolbox`);
-    return of([{ model: 'lmao', id: 123, make: 'Some make', serialNumber: '134234', color: 'green',dateAcquired: new Date(2000,3,3, 10,42) } as Toolbox]).pipe(
-      tap(t => console.log(t))
-    );
+    return of([
+      {
+        model: 'lmao',
+        id: 123,
+        make: 'Some make',
+        serialNumber: '134234',
+        color: 'green',
+        dateAcquired: new Date(2000, 3, 3, 10, 42),
+      } as Toolbox,
+    ]).pipe(tap(t => console.log(t)));
   }
 
-  public getToolboxContents(id: number): Observable<Tool[]> {
+  public getToolbox(id: number): Observable<Toolbox> {
+    //return this.httpClient.get<Toolbox[]>(`${this.apiUrl}/toolbox`);
+    return of({
+      model: 'lmao',
+      id: 123,
+      make: 'Some make',
+      serialNumber: '134234',
+      color: 'green',
+      dateAcquired: new Date(2000, 3, 3, 10, 42),
+    } as Toolbox).pipe(tap(t => console.log(t)));
+  }
+
+  public getToolboxContents(ids: number[]): Observable<Tool[]> {
+    ids.forEach(toolboxId => {
+      //request
+    });
+
     return of([
       {
         model: 'lmao',

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { ToolComponent } from './tool/tool/tool.component';
 import { ToolListComponent } from './tool/tool-list/tool-list.component';
 import { CraftsmanListComponent } from './craftsman/craftsman-list/craftsman-list.component';
 import { CraftsmanComponent } from './craftsman/craftsman/craftsman.component';
+import { NewCraftsmanComponent } from './craftsman/new-craftsman/new-craftsman.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { CraftsmanComponent } from './craftsman/craftsman/craftsman.component';
     ToolListComponent,
     CraftsmanListComponent,
     CraftsmanComponent,
+    NewCraftsmanComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,6 +36,8 @@ import { CraftsmanComponent } from './craftsman/craftsman/craftsman.component';
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

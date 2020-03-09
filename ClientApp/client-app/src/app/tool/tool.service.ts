@@ -42,4 +42,14 @@ export class ToolService {
     ]).pipe(tap(t => console.log(t)));
   }
 
+  public getTool(id: number): Observable<Tool> {
+    return of({
+      model: 'lmao',
+      type: 'Spanner',
+      dateAcquired: new Date(),
+      color: 'Red',
+      make: 'God Knows',
+      serialNumber: '123489530345',
+    } as Tool);
+  }
 }
