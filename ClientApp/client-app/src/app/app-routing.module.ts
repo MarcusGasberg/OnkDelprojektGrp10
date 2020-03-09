@@ -5,6 +5,7 @@ import { ToolboxListComponent } from './toolbox/toolbox-list/toolbox-list.compon
 import { ToolListComponent } from './tool/tool-list/tool-list.component';
 import { CraftsmanListComponent } from './craftsman/craftsman-list/craftsman-list.component';
 import { NewCraftsmanComponent } from './craftsman/new-craftsman/new-craftsman.component';
+import { NewtoolComponent } from './tool/newtool/newtool.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'tools', component: ToolListComponent },
   { path: 'craftsmen', component: CraftsmanListComponent },
   { path: 'newcraftsmen', component: NewCraftsmanComponent },
+  { path: 'newtool', component: NewtoolComponent },
 ];
 
 @NgModule({

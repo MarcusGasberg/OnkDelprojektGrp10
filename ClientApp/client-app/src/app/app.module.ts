@@ -16,6 +16,7 @@ import { ToolListComponent } from './tool/tool-list/tool-list.component';
 import { CraftsmanListComponent } from './craftsman/craftsman-list/craftsman-list.component';
 import { CraftsmanComponent } from './craftsman/craftsman/craftsman.component';
 import { NewCraftsmanComponent } from './craftsman/new-craftsman/new-craftsman.component';
+import { NewtoolComponent } from './tool/newtool/newtool.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { NewCraftsmanComponent } from './craftsman/new-craftsman/new-craftsman.c
     CraftsmanListComponent,
     CraftsmanComponent,
     NewCraftsmanComponent,
+    NewtoolComponent,
   ],
   imports: [
     BrowserModule,
