@@ -23,15 +23,15 @@ namespace ServerApp.Controllers
 
         // GET: api/Craftsmen
         [HttpGet]
-        public async Task<IEnumerable<Craftsman>> Get()
+        public async Task<IEnumerable<Craftsman>> GetCraftsmen()
         {
             return await context.Craftsmen.ToListAsync();
            
         }
 
         // GET: api/Craftsmen/5
-        [HttpGet("{id}", Name = "Get")]
-        public async Task<ActionResult<Craftsman>> Get(int id)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Craftsman>> GetCraftsman(int id)
         {
             var craftsman = await context.Craftsmen.FindAsync(id);
             if (craftsman == null)
@@ -44,17 +44,17 @@ namespace ServerApp.Controllers
 
         // POST: api/Craftsmen
         [HttpPost]
-        public async Task<ActionResult<Craftsman>> Post([FromBody] Craftsman craftsman)
+        public async Task<ActionResult<Craftsman>> PostCraftsman([FromBody] Craftsman craftsman)
         {
             context.Add(craftsman);
             await context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(Post), new { id = craftsman.Id }, craftsman);
+            return CreatedAtAction(nameof(PostCraftsman), new { id = craftsman.Id }, craftsman);
         }
 
         // PUT: api/Craftsmen/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, [FromBody] Craftsman craftsman)
+        public async Task<IActionResult> PutCraftsman(int id, [FromBody] Craftsman craftsman)
         {
             var dbCraftsman = await context.Craftsmen.FindAsync(id);
             if (dbCraftsman == null)
@@ -69,14 +69,15 @@ namespace ServerApp.Controllers
             dbCraftsman.WorkField = craftsman.WorkField ?? dbCraftsman.WorkField;
             dbCraftsman.EmploymentDate = craftsman.EmploymentDate != null ? craftsman.EmploymentDate : dbCraftsman.EmploymentDate;
 
-            context.Craftsmen.Update(craftsman);
+
+            await context.SaveChangesAsync();
 
             return NoContent();
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public IActionResult DeleteCraftsman(int id)
         {
             var dbCraftsman = context.Craftsmen.Find(id);
             if (dbCraftsman == null)
@@ -86,7 +87,7 @@ namespace ServerApp.Controllers
 
             context.Craftsmen.Remove(dbCraftsman);
 
-            return Delete(id);
+            return NoContent();
         }
     }
 }
