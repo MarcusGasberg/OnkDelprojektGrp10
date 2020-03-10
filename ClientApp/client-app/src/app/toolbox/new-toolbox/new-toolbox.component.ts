@@ -1,38 +1,37 @@
 import { Component, OnInit } from '@angular/core';
-import { Tool } from 'src/app/models/tool';
 import {
   FormGroup,
   FormControl,
   FormBuilder,
   Validators,
 } from '@angular/forms';
+import { Toolbox } from '../toolbox';
 
 @Component({
-  selector: 'app-newtool',
-  templateUrl: './newtool.component.html',
-  styleUrls: ['./newtool.component.scss'],
+  selector: 'app-new-toolbox',
+  templateUrl: './new-toolbox.component.html',
+  styleUrls: ['./new-toolbox.component.scss'],
 })
-export class NewtoolComponent implements OnInit {
-  public tool: FormGroup;
+export class NewToolboxComponent implements OnInit {
+  public toolbox: FormGroup;
   floatLabelControl = new FormControl('auto');
   // public required = new FormControl('', [Validators.required]);
 
   constructor(private formBuilder: FormBuilder) {
-    this.tool = formBuilder.group({
+    this.toolbox = formBuilder.group({
       color: [null, Validators.required],
       dateAcquired: [null, Validators.required],
       make: [null, Validators.required],
-      serialNumber: [null, Validators.required],
-      type: [null, Validators.required],
       model: [null, Validators.required],
+      serialNumber: [null, Validators.required],
     });
   }
 
   ngOnInit(): void {}
 
   public onSubmit(craftsmanData) {
-    if (this.tool.valid) {
-      this.tool.reset();
+    if (this.toolbox.valid) {
+      this.toolbox.reset();
       // TODO: Send to db
     }
   }

@@ -30,6 +30,7 @@ export class NewCraftsmanComponent implements OnInit {
 
   public onSubmit(craftsmanData) {
     if (this.craftsman.valid) {
+      this.craftsman.reset();
       // TODO: Send to db
     }
   }
