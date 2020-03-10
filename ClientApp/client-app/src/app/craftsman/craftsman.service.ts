@@ -12,25 +12,13 @@ import { Craftsman } from '../models/craftsman';
 })
 export class CraftsmanService {
   private readonly apiUrl = environment.apiUrl;
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
   public fetchAll(): Observable<Craftsman[]> {
-    return of([
-      {
-        firstName: 'Marcus',
-        lastName: 'Gasbarg',
-        employmentDate: new Date(2019, 5, 10),
-        workField: 'Pluming',
-      } as Craftsman,
-    ]);
+    return this.httpClient.get<Craftsman[]>(`${this.apiUrl}/craftsmen`);
   }
 
   public getCraftsman(id: number): Observable<Craftsman> {
-    return of({
-      firstName: 'Marcus',
-      lastName: 'Gasbarg',
-      employmentDate: new Date(2019, 5, 10),
-      workField: 'Pluming',
-    } as Craftsman);
+    return this.httpClient.get<Craftsman>(`${this.apiUrl}/craftsmen/${id}`);
   }
 }

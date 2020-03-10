@@ -8,13 +8,28 @@
       Toolbox details
     </mat-panel-description>
   </mat-expansion-panel-header>
-  <div>Owner: {{ (craftsman$ | async).firstName }} {{ (craftsman$ | async).lastName }}</div>
-  <div>Color: {{ toolbox.color }}</div>
-  <div>Date aquired: {{ toolbox.dateAcquired.toLocaleString('en-GB', {}) }}</div>
-  <div>Make: {{ toolbox.make }}</div>
-  <div>Serial number: {{ toolbox.serialNumber }}</div>
+  <div>
 
-  <div *ngFor="let tool of tools$ | async">
-    <app-tool [tool]="tool"></app-tool>
+    <div *ngIf="(craftsman$ | async) as craftsman">
+      <p>
+        <strong>Owner:</strong> {{ craftsman.firstName }} {{ craftsman.lastName }}
+      </p>
+    </div>
+    <p>
+      <strong>Color:</strong> {{ toolbox.color }}
+    </p>
+    <p *ngIf="toolbox.dateAcquired">
+      <strong>Date aquired:</strong> {{ toolbox.dateAcquired.toLocaleString('en-GB', {}) }}
+    </p>
+    <p>
+      <strong>Make:</strong> {{ toolbox.make }}
+    </p>
+    <p>
+      <strong>Serial number:</strong> {{ toolbox.serialNumber }}
+    </p>
+
+    <div *ngFor="let tool of tools$ | async">
+      <app-tool [tool]="tool"></app-tool>
+    </div>
   </div>
 </mat-expansion-panel>

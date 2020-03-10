@@ -21,10 +21,10 @@ export class ToolboxComponent implements OnInit {
   constructor(
     private service: ToolboxService,
     private craftsmanService: CraftsmanService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
-    this.tools$ = this.service.getToolboxContents(this.toolbox.toolIds).pipe();
     this.craftsman$ = this.craftsmanService.getCraftsman(this.toolbox.ownerId);
+    this.tools$ = this.service.getToolboxContents(this.toolbox.id);
   }
 }
