@@ -1,3 +1,4 @@
+using System;
 using AppPersistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -48,6 +49,16 @@ namespace ServerApp
             {
                 endpoints.MapControllers();
             });
+
+            ApplyMigrations(app);
+        }
+
+        private void ApplyMigrations(IApplicationBuilder app)
+        {
+            using (var scope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                scope.ServiceProvider.GetService<AppDbContext>().Database.Migrate();
+            }
         }
     }
 }

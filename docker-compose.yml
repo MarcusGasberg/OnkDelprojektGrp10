@@ -1,31 +1,42 @@
 version: "3"
 services:
-  app:
-    build: ./ClientApp
-    command: nodemon server.js
+  client-app:
+    container_name: "client-app"
+    build: ./ClientApp/client-app
     ports:
-      - "4200:80"
+      - "4200:4200"
     networks:
-      - front-tier
-      - back-tier
-  server:
+      - app-network
+
+  server-app:
+    container_name: "server-app"
     build: ./ServerApp
+    restart: on-failure
     ports:
-      - "8000:80"
+      - "5000:80"
+      - "5001:80"
     depends_on:
       - db
-  db:
-    image: "mcr.microsoft.com/mssql/server"
-    environment:
-      ACCEPT_EULA: "Y"
-    volumes:
-      - "db-data:/var/lib/data"
     networks:
-      - back-tier
+      - app-network
+
+  db:
+    image: "mcr.microsoft.com/mssql/server:2017-CU19-ubuntu-16.04"
+    container_name: "craftsman-db"
+    ports:
+       - "1433:1433"
+    environment:
+       - ACCEPT_EULA=Y
+       - MSSQL_SA_PASSWORD=Passw0rd
+       - SA_PASSWORD=Passw0rd
+    volumes:
+      - db-data:/var/opt/mssql/
+      - /var/opt/mssql/data
+    networks:
+      - app-network
 
 volumes:
   db-data:
 
 networks:
-  front-tier:
-  back-tier:
+  app-network:
