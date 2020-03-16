@@ -33,7 +33,7 @@ namespace ServerApp.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Tool>> GetTool(int id)
         {
-            var tool= await context.Tools.FindAsync(id);
+            var tool = await context.Tools.FindAsync(id);
             if (tool == null)
             {
                 return NotFound();
@@ -41,6 +41,22 @@ namespace ServerApp.Controllers
 
             return tool;
         }
+
+        // GET: api/Toolboxes/5/toolboxes
+        [HttpGet("{id}/tools")]
+        public async Task<ActionResult<Toolbox>> GetToolsInToolbox(int id)
+        {
+            var tool = await context.Tools
+                .Include(tb => tb.Toolbox)
+                .FirstOrDefaultAsync(tb => tb.Id == id);
+            if (tool == null)
+            {
+                return NotFound();
+            }
+
+            return tool.Toolbox;
+        }
+
 
 
         // POST: api/Tools
