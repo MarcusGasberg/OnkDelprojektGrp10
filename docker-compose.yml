@@ -1,0 +1,31 @@
+version: "3"
+services:
+  app:
+    build: ./ClientApp
+    command: nodemon server.js
+    ports:
+      - "4200:80"
+    networks:
+      - front-tier
+      - back-tier
+  server:
+    build: ./ServerApp
+    ports:
+      - "8000:80"
+    depends_on:
+      - db
+  db:
+    image: "mcr.microsoft.com/mssql/server"
+    environment:
+      ACCEPT_EULA: "Y"
+    volumes:
+      - "db-data:/var/lib/data"
+    networks:
+      - back-tier
+
+volumes:
+  db-data:
+
+networks:
+  front-tier:
+  back-tier:
