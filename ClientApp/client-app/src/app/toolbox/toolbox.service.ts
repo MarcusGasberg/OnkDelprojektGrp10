@@ -10,7 +10,7 @@ import { Tool } from '../models/tool';
   providedIn: 'root',
 })
 export class ToolboxService {
-  private readonly apiUrl = environment.apiUrl;
+  private readonly apiUrl = 'api';
   constructor(private httpClient: HttpClient) { }
 
   public fetchAll(): Observable<Toolbox[]> {

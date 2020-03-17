@@ -34,7 +34,7 @@ namespace ServerApp
             {
                 app.UseDeveloperExceptionPage();
 
-                app.UseCors(builder => builder.WithOrigins("http://localhost:4200")
+                app.UseCors(builder => builder.WithOrigins("http://192.168.99.100")
                     .AllowAnyMethod()
                     .AllowAnyHeader());
             }

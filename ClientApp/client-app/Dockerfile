@@ -8,6 +8,7 @@ COPY package.json ./
 
 RUN npm install
 RUN npm install -g @angular/cli
+
 COPY . .
 
-CMD ng serve --prod=true --host 0.0.0.0
+CMD ng serve --host 0.0.0.0
