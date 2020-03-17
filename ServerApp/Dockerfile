@@ -3,7 +3,7 @@ WORKDIR /app
 
 COPY . ./
 RUN dotnet restore *.sln
-RUN dotnet publish -c docker -o out
+RUN dotnet publish -c Docker -o out
 
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.0
 WORKDIR /app

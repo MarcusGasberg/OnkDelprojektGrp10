@@ -65,15 +65,15 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "docker": {
+              "fileReplacements": [
+                {
+                  "replace": "proxy.conf.json",
+                  "with": "proxy.conf.docker.json"
+                }
+              ]
             }
-          },
-          "docker": {
-            "fileReplacements": [
-              {
-                "replace": "proxy.conf.json",
-                "with": "proxy.conf.docker.json"
-              }
-            ]
           }
         },
         "serve": {
@@ -85,6 +85,10 @@
           "configurations": {
             "production": {
               "browserTarget": "client-app:build:production"
+            },
+            "docker": {
+              "browserTarget": "client-app:build:docker",
+              "proxyConfig": "proxy.conf.docker.json"
             }
           }
         },
