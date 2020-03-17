@@ -26,7 +26,6 @@ namespace ServerApp.Controllers
         public async Task<IEnumerable<Toolbox>> GetToolboxes()
         {
             return await context.Toolboxes.ToListAsync();
-           
         }
 
         // GET: api/Toolboxes/5

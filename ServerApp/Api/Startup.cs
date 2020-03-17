@@ -23,8 +23,10 @@ namespace ServerApp
         {
             services.AddControllers();
 
+            var connectionString = Configuration.GetConnectionString("CraftsmanDb");
+
             services.AddDbContext<AppDbContext>(options => 
-                options.UseSqlServer(Configuration.GetConnectionString("CraftsmanDb")));
+                options.UseSqlServer(connectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,7 +36,7 @@ namespace ServerApp
             {
                 app.UseDeveloperExceptionPage();
 
-                app.UseCors(builder => builder.WithOrigins("http://192.168.99.100")
+                app.UseCors(builder => builder.WithOrigins("http://localhost:4200")
                     .AllowAnyMethod()
                     .AllowAnyHeader());
             }

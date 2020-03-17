@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Toolbox } from '../toolbox/toolbox';
@@ -11,14 +10,13 @@ import { Craftsman } from '../models/craftsman';
   providedIn: 'root',
 })
 export class CraftsmanService {
-  private readonly apiUrl = environment.apiUrl;
   constructor(private httpClient: HttpClient) { }
 
   public fetchAll(): Observable<Craftsman[]> {
-    return this.httpClient.get<Craftsman[]>(`${this.apiUrl}/craftsmen`);
+    return this.httpClient.get<Craftsman[]>(`api/craftsmen`);
   }
 
   public getCraftsman(id: number): Observable<Craftsman> {
-    return this.httpClient.get<Craftsman>(`${this.apiUrl}/craftsmen/${id}`);
+    return this.httpClient.get<Craftsman>(`api/craftsmen/${id}`);
   }
 }

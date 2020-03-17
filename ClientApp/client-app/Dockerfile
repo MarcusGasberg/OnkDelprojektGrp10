@@ -11,4 +11,4 @@ RUN npm install -g @angular/cli
 
 COPY . .
 
-CMD ng serve --host 0.0.0.0
+CMD ng serve --configuration=docker --host 0.0.0.0
