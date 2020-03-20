@@ -1,4 +1,7 @@
-<h2 class="mat-h2">Craftsmen</h2>
+<app-title-button-header Title="Craftsmen"
+  Icon="add"
+  NavigateTo="/craftsmen/new">
+</app-title-button-header>
 <mat-accordion *ngFor="let craftsman of craftsmen$ | async">
   <app-craftsman [craftsman]="craftsman"></app-craftsman>
 </mat-accordion>

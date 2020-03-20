@@ -10,12 +10,12 @@ import { NewToolboxComponent } from './toolbox/new-toolbox/new-toolbox.component
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'toolbox', component: ToolboxListComponent },
+  { path: 'toolboxes', component: ToolboxListComponent },
   { path: 'tools', component: ToolListComponent },
   { path: 'craftsmen', component: CraftsmanListComponent },
-  { path: 'newcraftsmen', component: NewCraftsmanComponent },
-  { path: 'newtool', component: NewtoolComponent },
-  { path: 'newtoolbox', component: NewToolboxComponent },
+  { path: 'craftsmen/new', component: NewCraftsmanComponent },
+  { path: 'tools/new', component: NewtoolComponent },
+  { path: 'toolboxes/new', component: NewToolboxComponent },
 ];
 
 @NgModule({

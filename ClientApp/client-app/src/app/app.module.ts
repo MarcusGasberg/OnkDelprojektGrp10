@@ -18,6 +18,7 @@ import { CraftsmanComponent } from './craftsman/craftsman/craftsman.component';
 import { NewCraftsmanComponent } from './craftsman/new-craftsman/new-craftsman.component';
 import { NewtoolComponent } from './tool/newtool/newtool.component';
 import { NewToolboxComponent } from './toolbox/new-toolbox/new-toolbox.component';
+import { TitleButtonHeaderComponent } from './title-button-header/title-button-header.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { NewToolboxComponent } from './toolbox/new-toolbox/new-toolbox.component
     NewCraftsmanComponent,
     NewtoolComponent,
     NewToolboxComponent,
+    TitleButtonHeaderComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,7 @@
-<h2 class="mat-h2">Toolboxes</h2>
+<app-title-button-header Title="Toolboxes"
+  Icon="add"
+  NavigateTo="/toolboxes/new">
+</app-title-button-header>
 <mat-accordion *ngFor="let toolbox of toolboxes$ | async">
   <app-toolbox *ngIf="toolbox" [toolbox]="toolbox"></app-toolbox>
 </mat-accordion>

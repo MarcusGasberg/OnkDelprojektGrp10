@@ -11,33 +11,6 @@ export class ToolService {
   constructor(private httpClient: HttpClient) { }
 
   public fetchAll(): Observable<Tool[]> {
-    // return this.httpClient.get<Tool[]>(`api/tool`);
-    return of([
-      {
-        model: 'lmao',
-        type: 'Spanner',
-        dateAcquired: new Date(),
-        color: 'Red',
-        make: 'God Knows',
-        serialNumber: '123489530345',
-      } as Tool,
-      {
-        model: 'lmao',
-        type: 'Spanner',
-        dateAcquired: new Date(),
-        color: 'Red',
-        make: 'God Knows',
-        serialNumber: '123489530345',
-      } as Tool,
-      {
-        model: 'lmao',
-        type: 'Spanner',
-        dateAcquired: new Date(),
-        color: 'Red',
-        make: 'God Knows',
-        serialNumber: '123489530345',
-      } as Tool,
-    ]).pipe(tap(t => console.log(t)));
+    return this.httpClient.get<Tool[]>(`api/tools`);
   }
-
 }
