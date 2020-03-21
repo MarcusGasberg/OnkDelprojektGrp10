@@ -6,6 +6,8 @@ import {
   FormBuilder,
   Validators,
 } from '@angular/forms';
+import { ToolService } from '../tool.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-newtool',
@@ -17,10 +19,14 @@ export class NewtoolComponent implements OnInit {
   floatLabelControl = new FormControl('auto');
   // public required = new FormControl('', [Validators.required]);
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private service: ToolService,
+    private router: Router
+  ) {
     this.tool = formBuilder.group({
       color: [null, Validators.required],
-      dateAcquired: [null, Validators.required],
+      acquired: [null, Validators.required],
       make: [null, Validators.required],
       serialNumber: [null, Validators.required],
       type: [null, Validators.required],
@@ -30,10 +36,11 @@ export class NewtoolComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  public onSubmit(craftsmanData) {
+  public onSubmit() {
     if (this.tool.valid) {
-      this.tool.reset();
-      // TODO: Send to db
+      this.service.postTool(this.tool.value as Tool).subscribe({
+        next: () => this.router.navigate(['tools']),
+      });
     }
   }
 }

@@ -1,6 +1,4 @@
-<app-title-button-header Title="New tool"
-  Icon="arrow_back"
-  NavigateTo="/tools">
+<app-title-button-header Title="New tool" Icon="arrow_back" NavigateTo="/tools">
 </app-title-button-header>
 <mat-card>
   <form [formGroup]="tool" (ngSubmit)="onSubmit(tool.value)">
@@ -42,11 +40,7 @@
     <div>
       <mat-form-field>
         <mat-label>Date aquired</mat-label>
-        <input
-          matInput
-          [matDatepicker]="picker"
-          formControlName="dateAcquired"
-        />
+        <input matInput [matDatepicker]="picker" formControlName="acquired" />
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>

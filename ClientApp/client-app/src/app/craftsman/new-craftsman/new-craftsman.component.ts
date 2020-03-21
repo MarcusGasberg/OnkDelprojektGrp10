@@ -6,6 +6,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { Craftsman } from 'src/app/models/craftsman';
+import { CraftsmanService } from '../craftsman.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-craftsman',
@@ -15,9 +17,12 @@ import { Craftsman } from 'src/app/models/craftsman';
 export class NewCraftsmanComponent implements OnInit {
   public craftsman: FormGroup;
   floatLabelControl = new FormControl('auto');
-  // public required = new FormControl('', [Validators.required]);
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private service: CraftsmanService,
+    private router: Router
+  ) {
     this.craftsman = formBuilder.group({
       firstName: [null, Validators.required],
       lastName: [null, Validators.required],
@@ -28,10 +33,11 @@ export class NewCraftsmanComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  public onSubmit(craftsmanData) {
+  public onSubmit() {
     if (this.craftsman.valid) {
-      this.craftsman.reset();
-      // TODO: Send to db
+      this.service.postCrafsman(this.craftsman.value as Craftsman).subscribe({
+        next: () => this.router.navigate(['craftsmen']),
+      });
     }
   }
 }

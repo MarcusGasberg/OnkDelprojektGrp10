@@ -11,8 +11,14 @@
   <p>Make: {{ tool.make }}</p>
   <p>Color: {{ tool.color }}</p>
   <p>Serial Number: {{ tool.serialNumber }}</p>
-  <p>
+  <p *ngIf="tool.acquired">
     Date Aquired:
-    {{ tool.dateAcquired.toLocaleString('en-GB', {}) }}
+    {{ tool.acquired.toLocaleString('en-GB', {}) }}
   </p>
+  <div class="action-buttons">
+    <button mat-raised-button (click)="onEditClick()">Edit</button>
+    <button mat-raised-button color="warn" (click)="onDeleteClick()">
+      Delete
+    </button>
+  </div>
 </mat-expansion-panel>

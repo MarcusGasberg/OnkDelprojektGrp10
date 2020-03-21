@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Craftsman } from 'src/app/models/craftsman';
 import { CraftsmanService } from '../craftsman.service';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-craftsman-list',
@@ -9,11 +9,27 @@ import { Observable } from 'rxjs';
   styleUrls: ['./craftsman-list.component.scss'],
 })
 export class CraftsmanListComponent implements OnInit {
-  public craftsmen$: Observable<Craftsman[]>;
+  public craftsmen$: BehaviorSubject<Craftsman[]> = new BehaviorSubject([]);
 
   constructor(private service: CraftsmanService) {}
 
   ngOnInit(): void {
-    this.craftsmen$ = this.service.fetchAll().pipe();
+    this.getCraftsmen();
+  }
+
+  public onDeleteTool(id: number): void {
+    this.service.deleteCraftsman(id).subscribe({
+      next: this.getCraftsmen,
+    });
+  }
+
+  public onEditTool(id: number): void {
+    throw new Error('Not implemented yet.');
+  }
+
+  public getCraftsmen(): void {
+    this.service
+      .getAll()
+      .subscribe(craftsmen => this.craftsmen$.next(craftsmen));
   }
 }

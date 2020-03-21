@@ -12,4 +12,11 @@
     Employment date: {{ craftsman.employmentDate.toLocaleString('en-GB', {}) }}
   </div>
   <div>Field of work: {{ craftsman.workField }}</div>
+
+  <div class="action-buttons">
+    <button mat-raised-button (click)="onEditClick()">Edit</button>
+    <button mat-raised-button color="warn" (click)="onDeleteClick()">
+      Delete
+    </button>
+  </div>
 </mat-expansion-panel>

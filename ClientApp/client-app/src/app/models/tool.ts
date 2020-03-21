@@ -1,7 +1,7 @@
 export interface Tool {
   id: number;
   toolboxId: number;
-  dateAcquired: Date;
+  acquired: Date;
   make: string;
   color: string;
   model: string;

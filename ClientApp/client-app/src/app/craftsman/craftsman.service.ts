@@ -13,7 +13,7 @@ import { ThrowStmt } from '@angular/compiler';
 export class CraftsmanService {
   constructor(private httpClient: HttpClient) {}
 
-  public fetchAll(): Observable<Craftsman[]> {
+  public getAll(): Observable<Craftsman[]> {
     return this.httpClient.get<Craftsman[]>(`api/craftsmen`);
   }
 

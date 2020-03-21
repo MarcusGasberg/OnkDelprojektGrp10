@@ -1,11 +1,12 @@
-<app-title-button-header
-  Title="Tools"
-  Icon="add"
-  NavigateTo="/tools/new">
+<app-title-button-header Title="Tools" Icon="add" NavigateTo="/tools/new">
 </app-title-button-header>
 <mat-list>
   <mat-accordion *ngFor="let tool of tools$ | async">
-    <app-tool [tool]="tool"></app-tool>
+    <app-tool
+      [tool]="tool"
+      (delete)="onDeleteTool($event)"
+      (edit)="onEditTool($event)"
+    ></app-tool>
   </mat-accordion>
   <mat-divider></mat-divider>
 </mat-list>
