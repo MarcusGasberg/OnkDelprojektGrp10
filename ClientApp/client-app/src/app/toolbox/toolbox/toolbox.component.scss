@@ -14,3 +14,14 @@ mat-expansion-panel {
 .mat-expansion-panel-spacing {
   margin-bottom: 16px !important;
 }
+
+.action-buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-content: center;
+  margin-right: auto;
+  button{
+    margin-right: 1rem;
+  }
+}

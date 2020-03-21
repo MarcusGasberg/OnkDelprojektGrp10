@@ -1,9 +1,11 @@
-<app-title-button-header Title="New toolbox"
+<app-title-button-header
+  Title="New toolbox"
   Icon="arrow_back"
-  NavigateTo="/toolboxes">
+  NavigateTo="/toolboxes"
+>
 </app-title-button-header>
 <mat-card>
-  <form [formGroup]="toolbox" (ngSubmit)="onSubmit(toolbox.value)">
+  <form [formGroup]="toolbox" (ngSubmit)="onSubmit()">
     <div>
       <mat-form-field appearance="fill" [floatLabel]="floatLabelControl.value">
         <mat-label>Make</mat-label>
@@ -28,7 +30,7 @@
     <div>
       <mat-form-field appearance="fill">
         <mat-label>Serial Number</mat-label>
-        <input formControlName="serialNumber" type="text" matInput />
+        <input formControlName="serial" type="text" matInput />
         <mat-error>Serial number is required</mat-error>
       </mat-form-field>
     </div>

@@ -46,7 +46,7 @@ namespace ServerApp.Controllers
         public async Task<ActionResult<IEnumerable<Tool>>> GetToolsInToolbox(int id)
         {
             var toolbox = await context.Toolboxes
-                .Include(tb=>tb.Tools)
+                .Include(tb => tb.Tools)
                 .FirstOrDefaultAsync(tb => tb.Id == id);
             if (toolbox == null)
             {
@@ -92,7 +92,7 @@ namespace ServerApp.Controllers
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public IActionResult DeleteToolbox(int id)
+        public async Task<IActionResult> DeleteToolbox(int id)
         {
             var dbToolbox = context.Toolboxes.Find(id);
             if (dbToolbox == null)
@@ -101,6 +101,7 @@ namespace ServerApp.Controllers
             }
 
             context.Toolboxes.Remove(dbToolbox);
+            await context.SaveChangesAsync();
 
             return NoContent();
         }

@@ -9,27 +9,29 @@
     </mat-panel-description>
   </mat-expansion-panel-header>
   <div>
-
-    <div *ngIf="(craftsman$ | async) as craftsman">
+    <div *ngIf="craftsman$ | async as craftsman">
       <p>
-        <strong>Owner:</strong> {{ craftsman.firstName }} {{ craftsman.lastName }}
+        <strong>Owner:</strong> {{ craftsman.firstName }}
+        {{ craftsman.lastName }}
       </p>
     </div>
-    <p>
-      <strong>Color:</strong> {{ toolbox.color }}
-    </p>
+    <p><strong>Color:</strong> {{ toolbox.color }}</p>
     <p *ngIf="toolbox.dateAcquired">
-      <strong>Date aquired:</strong> {{ toolbox.dateAcquired.toLocaleString('en-GB', {}) }}
+      <strong>Date aquired:</strong>
+      {{ toolbox.dateAcquired.toLocaleString('en-GB', {}) }}
     </p>
-    <p>
-      <strong>Make:</strong> {{ toolbox.make }}
-    </p>
-    <p>
-      <strong>Serial number:</strong> {{ toolbox.serialNumber }}
-    </p>
+    <p><strong>Make:</strong> {{ toolbox.make }}</p>
+    <p><strong>Serial number:</strong> {{ toolbox.serial }}</p>
 
     <div *ngFor="let tool of tools$ | async">
       <app-tool [tool]="tool"></app-tool>
     </div>
+  </div>
+
+  <div class="action-buttons">
+    <button mat-raised-button (click)="onEditClick()">Edit</button>
+    <button mat-raised-button color="warn" (click)="onDeleteClick()">
+      Delete
+    </button>
   </div>
 </mat-expansion-panel>

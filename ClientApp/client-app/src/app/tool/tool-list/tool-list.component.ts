@@ -15,6 +15,6 @@ export class ToolListComponent implements OnInit {
     constructor(private service: ToolService) {}
 
     ngOnInit(): void {
-        this.tools$ = this.service.fetchAll().pipe();
+        this.tools$ = this.service.getAll().pipe();
     }
 }

@@ -5,7 +5,9 @@ import {
   FormBuilder,
   Validators,
 } from '@angular/forms';
-import { Toolbox } from '../toolbox';
+import { Toolbox } from '../../models/toolbox';
+import { ToolboxService } from '../toolbox.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-toolbox',
@@ -17,22 +19,27 @@ export class NewToolboxComponent implements OnInit {
   floatLabelControl = new FormControl('auto');
   // public required = new FormControl('', [Validators.required]);
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private service: ToolboxService,
+    private router: Router
+  ) {
     this.toolbox = formBuilder.group({
       color: [null, Validators.required],
       dateAcquired: [null, Validators.required],
       make: [null, Validators.required],
       model: [null, Validators.required],
-      serialNumber: [null, Validators.required],
+      serial: [null, Validators.required],
     });
   }
 
   ngOnInit(): void {}
 
-  public onSubmit(craftsmanData) {
+  public onSubmit() {
     if (this.toolbox.valid) {
-      this.toolbox.reset();
-      // TODO: Send to db
+      this.service.postToolbox(this.toolbox.value as Toolbox).subscribe({
+        next: () => this.router.navigate(['toolboxes']),
+      });
     }
   }
 }
