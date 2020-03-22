@@ -16,11 +16,11 @@ services:
       - '5000:80'
       - '5001:80'
     depends_on:
-      - db
+      - craftsman-db
     networks:
       - app-network
 
-  db:
+  craftsman-db:
     image: 'mcr.microsoft.com/mssql/server:2017-CU19-ubuntu-16.04'
     container_name: 'craftsman-db'
     ports:
@@ -30,13 +30,13 @@ services:
       - MSSQL_SA_PASSWORD=Passw0rd
       - SA_PASSWORD=Passw0rd
     volumes:
-      - db-data:/var/opt/mssql/
+      - craftsman-db-data:/var/opt/mssql/
       - /var/opt/mssql/data
     networks:
       - app-network
 
 volumes:
-  db-data:
+  craftsman-db-data:
 
 networks:
   app-network:

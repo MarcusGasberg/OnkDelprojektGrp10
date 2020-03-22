@@ -3,11 +3,11 @@ kind: PersistentVolumeClaim
 metadata:
   creationTimestamp: null
   labels:
-    io.kompose.service: db-claim1
-  name: db-claim1
+    io.kompose.service: craftsman-db-claim1
+  name: craftsman-db-claim1
 spec:
   accessModes:
-  - ReadWriteOnce
+    - ReadWriteOnce
   resources:
     requests:
       storage: 100Mi
