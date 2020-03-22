@@ -1,14 +1,11 @@
-FROM node:13.10
-
+### STAGE 1: Build ###
+FROM node:12.7-alpine AS build
 WORKDIR /usr/src/app
-
-ENV PATH /app/node_modules/.bin:$PATH
-
 COPY package.json ./
-
 RUN npm install
-RUN npm install -g @angular/cli
-
 COPY . .
+RUN npm run build:docker
 
-CMD ng serve --configuration=docker --host 0.0.0.0
+### STAGE 2: Run ###
+FROM nginx:1.17.1-alpine
+COPY --from=build /usr/src/app/dist/client-app /usr/share/nginx/html
