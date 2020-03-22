@@ -6,30 +6,33 @@ import { tap } from 'rxjs/operators';
 import { Tool } from '../models/tool';
 import { Craftsman } from '../models/craftsman';
 import { ThrowStmt } from '@angular/compiler';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CraftsmanService {
+  private apiUrl = environment.apiUrl;
+
   constructor(private httpClient: HttpClient) {}
 
   public getAll(): Observable<Craftsman[]> {
-    return this.httpClient.get<Craftsman[]>(`api/craftsmen`);
+    return this.httpClient.get<Craftsman[]>(`${this.apiUrl}/craftsmen`);
   }
 
   public getCraftsman(id: number): Observable<Craftsman> {
-    return this.httpClient.get<Craftsman>(`api/craftsmen/${id}`);
+    return this.httpClient.get<Craftsman>(`${this.apiUrl}/craftsmen/${id}`);
   }
 
   public postCrafsman(craftsman: Craftsman): Observable<Craftsman> {
-    return this.httpClient.post<Craftsman>(`api/craftsmen`, craftsman);
+    return this.httpClient.post<Craftsman>(`${this.apiUrl}/craftsmen`, craftsman);
   }
 
   public putCraftsman(craftsman: Craftsman): Observable<any> {
-    return this.httpClient.put(`api/craftsmen/${craftsman.id}`, craftsman);
+    return this.httpClient.put(`${this.apiUrl}/craftsmen/${craftsman.id}`, craftsman);
   }
 
   public deleteCraftsman(id: number): Observable<any> {
-    return this.httpClient.delete(`api/craftsmen/${id}`);
+    return this.httpClient.delete(`${this.apiUrl}/craftsmen/${id}`);
   }
 }
