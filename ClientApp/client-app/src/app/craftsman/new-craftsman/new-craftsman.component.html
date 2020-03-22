@@ -1,9 +1,11 @@
-<app-title-button-header Title="New craftsman"
+<app-title-button-header
+  Title="New craftsman"
   Icon="arrow_back"
-  NavigateTo="/craftsmen">
+  NavigateTo="/craftsmen"
+>
 </app-title-button-header>
 <mat-card>
-  <form [formGroup]="craftsman" (ngSubmit)="onSubmit(craftsman.value)">
+  <form [formGroup]="craftsman" (ngSubmit)="onSubmit()">
     <div>
       <mat-form-field appearance="fill" [floatLabel]="floatLabelControl.value">
         <mat-label>First Name</mat-label>
