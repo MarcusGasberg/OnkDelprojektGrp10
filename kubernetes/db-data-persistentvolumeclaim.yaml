@@ -1,10 +1,9 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  creationTimestamp: null
   labels:
-    io.kompose.service: craftsman-db-claim1
-  name: craftsman-db-claim1
+    app: craftsman-db-data
+  name: craftsman-db-data
 spec:
   accessModes:
     - ReadWriteOnce

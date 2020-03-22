@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+  labels:
+    app: client-app
+  name: client-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: client-app
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: client-app
+    spec:
+      containers:
+        - image: brunton/craftsman-frontend
+          imagePullPolicy: ''
+          name: client-app
+          ports:
+            - containerPort: 80
+          resources: {}
+      restartPolicy: Always
+      serviceAccountName: ''
+      volumes: null
+status: {}
