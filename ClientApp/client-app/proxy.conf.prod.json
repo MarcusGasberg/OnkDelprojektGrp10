@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "http://server-app/api",
+    "target": "http://10.103.156.6:5001/api",
     "secure": false,
     "pathRewrite": {
       "^/api": ""
