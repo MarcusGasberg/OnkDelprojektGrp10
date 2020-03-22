@@ -16,12 +16,12 @@ spec:
         app: server-app
     spec:
       containers:
-      - image: brunton/craftsman-backend
-        imagePullPolicy: ""
-        name: server-app
-        ports:
-        - containerPort: 80
-        resources: {}
+        - image: marcusgasberg/server-app
+          imagePullPolicy: Always
+          name: server-app
+          ports:
+            - containerPort: 80
+          resources: {}
       restartPolicy: Always
       serviceAccountName: ""
       volumes: null
