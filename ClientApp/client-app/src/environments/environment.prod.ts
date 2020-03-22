@@ -1,4 +1,4 @@
 export const environment = {
-  apiUrl: 'http://10.103.156.6:5001/api',
+  apiUrl: 'api',
   production: true,
 };

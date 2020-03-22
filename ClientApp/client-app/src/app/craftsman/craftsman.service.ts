@@ -25,11 +25,17 @@ export class CraftsmanService {
   }
 
   public postCrafsman(craftsman: Craftsman): Observable<Craftsman> {
-    return this.httpClient.post<Craftsman>(`${this.apiUrl}/craftsmen`, craftsman);
+    return this.httpClient.post<Craftsman>(
+      `${this.apiUrl}/craftsmen`,
+      craftsman
+    );
   }
 
   public putCraftsman(craftsman: Craftsman): Observable<any> {
-    return this.httpClient.put(`${this.apiUrl}/craftsmen/${craftsman.id}`, craftsman);
+    return this.httpClient.put(
+      `${this.apiUrl}/craftsmen/${craftsman.id}`,
+      craftsman
+    );
   }
 
   public deleteCraftsman(id: number): Observable<any> {

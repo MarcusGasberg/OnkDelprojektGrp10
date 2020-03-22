@@ -25,7 +25,7 @@ namespace ServerApp
 
             var connectionString = Configuration.GetConnectionString("CraftsmanDb");
 
-            services.AddDbContext<AppDbContext>(options => 
+            services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(connectionString));
         }
 
@@ -35,11 +35,11 @@ namespace ServerApp
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+            }
 
-                app.UseCors(builder => builder.WithOrigins("http://localhost:4200")
+            app.UseCors(builder => builder.AllowAnyOrigin()
                     .AllowAnyMethod()
                     .AllowAnyHeader());
-            }
 
             app.UseHttpsRedirection();
 
